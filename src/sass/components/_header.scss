@@ -3,14 +3,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background: url("./images/Background-Mobile.png");
+    background: url("../images/Background-Mobile.png");
 
     @include tablet {
-        background: url("./images/Background-Tablet.png");
+        background: url("../images/Background-Tablet.png");
     }
 
     @include desktop {
-        background: url("./images/Background-Desktop.png");
+        background: url("../images/Background-Desktop.png");
     }
 
     background-color: $fontColorPrimary;
