@@ -1,8 +1,7 @@
 .header {
+    padding: 0 20px;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
     background: url("../images/Background-Mobile.png");
 
     @include tablet {
@@ -12,8 +11,31 @@
     @include desktop {
         background: url("../images/Background-Desktop.png");
     }
-
-    background-color: $fontColorPrimary;
-    background-position: center;
+    background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
+    background-color: $fontColorPrimary;
+    height: 230px;
+
 }
+.input-container {
+    position: relative;
+  }
+  .search-input {
+    background-color: transparent;
+    padding-right: 30px; /* Ustal dowolną wartość dla miejsca na ikonę */
+    border: none;
+    outline: none;
+    width: 100%;
+    border-bottom: 0.5px solid white;
+  }
+  .icon-container {
+    position: absolute;
+    top: 50%;
+    right: 5px; /* Ustal dowolne odstępy dla pozycji ikony */
+    transform: translateY(-50%);
+    pointer-events: none; /* Zapobiega aktywacji kliknięć na ikonę */
+    color: white; /* Kolor ikony */
+    fill: white;
+  }
+  
