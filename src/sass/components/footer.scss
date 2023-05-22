@@ -1,0 +1,44 @@
+.footer {
+  background: #f7f7f7;
+  padding: 30px 0px;
+
+  &_content {
+    justify-content: center;
+    font-family: $fonfFamily;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    color: $fontColorQuaternary;
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+    }
+  }
+
+  &_svg {
+    width: 14px;
+    height: 15px;
+  }
+
+  &_rights {
+    padding-bottom: 10px;
+
+    @media screen and (min-width: 768px) {
+      padding-bottom: 0px;
+    }
+  }
+
+  &_goit {
+    padding-left: 6px;
+  }
+
+  &_dev {
+    padding-right: 6px;
+
+    @media screen and (min-width: 768px) {
+      padding-left: 5px;
+    }
+  }
+}
