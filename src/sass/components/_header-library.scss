@@ -1,0 +1,108 @@
+.header-library {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/Background-Mobile-Library.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: $fontColorPrimary;
+  height: 230px;
+  
+    @include tablet {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/Background-Tablet-Library.png");
+        height: 219px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $fontColorPrimary;
+    }
+
+    @include desktop {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/Background-Desktop-Library.png");
+        height: 216px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $fontColorPrimary;
+    } 
+}
+
+
+
+.header-library__buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+
+  @include tablet{
+    margin-top: 40px;
+  }
+}
+.header-library__buttons-list{
+  display:flex;
+  list-style: none;
+  gap: 20px;
+
+  @include tablet{
+    gap: 32px;
+  }
+
+  @include desktop{
+    gap: 16px;
+  }
+  
+}
+.header-library__buttons-item{
+  width: 129.53px;
+  height: 44px;
+  padding:14px 36.19px 12px 36.19px;
+  font-family: $fonfFamily;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  background: inherit;
+  border: 1px solid $fontColorSecondary;
+  border-radius: $borderRadius; 
+  color: $fontColorSecondary;
+  cursor: pointer;
+
+  @include tablet{
+    width: 152px;
+
+  }
+
+  @include desktop{
+    width: 148px;
+    height: 42px;
+  }
+}
+.header-library__buttons-item:hover{
+background-color: $fontColorTertiary;
+border:$fontColorTertiary;
+}
+.header-library__buttons-item:focus{
+background-color: $fontColorTertiary;
+border:$fontColorTertiary;
+}
+
+.header-library__buttons-item::after{
+    background-color: #FF001B;
+}
+
+
+@media screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  .header {
+    background-image: url("../images/Background-Mobile-Libraryx2.png");
+
+    @include tablet {
+        background-image: url("../images/Background-Tablet-Libraryx2.png");
+
+        @include desktop{
+            background-image: url("../images/Background-Desktop-Libraryx2.png");
+        }
+    }
+
+
+  }}
