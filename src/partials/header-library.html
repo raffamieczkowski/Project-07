@@ -1,38 +1,32 @@
 <header class="header-library">
-    <nav class="header-library__nav container">
-          <a href="./index.html">
-             <div class="logo-library__wrapper">
-             <svg class="logo-library__icon"
-             width="24"
-          height="24"
-          fill="white"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-          d="M19.82 2H4.18C2.97602 2 2 2.97602 2 4.18V19.82C2 21.024 2.97602 22 4.18 22H19.82C21.024 22 22 21.024 22 19.82V4.18C22 2.97602 21.024 2 19.82 2Z"
-          >
-          </path>>
-             </svg>
-             <span class="logo-library__text">Filmoteka</span>
-             </div>
-          </a>
-          <ul class="header-library__navigation">
-              <li>
-                  <a class="header-library__navigation-link" href="./index.html">HOME</a>
-              </li>
-              <li>
-                  <a class="header-library__navigation-link" href="../header-library.html">MY LIBRARY</a>
-              </li>
-          </ul>
-      </nav>
-      <div class="header-libaray__buttons">
-          <ul class="header-libary__buttons-list">
-              <li>
-                  <button class="button__watched"type="button">WATCHED</button>
-              </li>
-              <li>
-                  <button class="button__queue" type="button">QUEUE</button>
-              </li>
-          </ul>
-      </div>
+      <nav class="header__nav container">
+            <a href="./index.html">
+               <div class="logo__wrapper">
+               <svg class="logo__icon" 
+               width="24"
+               height="24">
+               <use href="/src/images/header.svg#icon-film"></use>
+               </svg>
+               <span class="logo__text">Filmoteka</span>
+               </div>
+            </a>
+            <ul class="header__navigation">
+                <li>
+                    <a class="header__navigation-link" href="./index.html">HOME</a>
+                </li>
+                <li>
+                    <a class="header__navigation-link header-library__secondary-link" href="./library.html">MY LIBRARY</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header-library__buttons">
+            <ul class="header-library__buttons-list">
+                <li>
+                    <button class="header-library__buttons-item"type="button">WATCHED</button>
+                </li>
+                <li>
+                    <button class="header-library__buttons-item" type="button">QUEUE</button>
+                </li>
+            </ul>
+        </div>
 </header>
