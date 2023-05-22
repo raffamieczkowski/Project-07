@@ -1,5 +1,7 @@
 @import './utils/vars';
 @import './utils/mixins';
 @import './utils/_globals';
-@import './components/example';
-@import './components/footer.scss';
+@import './components/header';
+@import './components/header-library';
+@import './components/movies';
+@import './components/footer';

@@ -1,0 +1,157 @@
+.header {
+  background: url("../images/Background-Mobile.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: $fontColorPrimary;
+  height: 230px;
+  
+    @include tablet {
+        background: url("../images/Background-Tablet.png");
+        height: 216px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $fontColorPrimary;
+       
+    }
+
+    @include desktop {
+        background: url("../images/Background-Desktop.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $fontColorPrimary;
+    } 
+}
+
+.header__nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+  }
+
+.header__navigation{
+    display: flex;
+    gap: 40px;
+    text-align: center; 
+}
+
+.logo__icon{
+    fill: transparent;
+    stroke: $fontColorSecondary;
+}
+.logo__text{
+    display:none;
+
+    @include tablet{
+      font-family: $fonfFamily;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 35px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: $fontColorSecondary;
+    }
+
+}
+.header__navigation-link{
+    text-decoration: none;
+     color: $fontColorSecondary;
+    font-family: $fonfFamily;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.header__primary-link, .header-library__secondary-link{
+    position:relative;
+    transition: color $transitionDuration $transitionTimingFunction;
+}
+.header__primary-link::after, .header-library__secondary-link::after{
+    content:"";
+    position:absolute;
+    height: 2px;
+    width: 100%;
+    border-radius: 2px;
+    bottom: -2px;
+    left:0;
+    background-color: #FF001B;
+}
+
+.header__form{
+     display: flex;
+    justify-content: center;
+    position: relative;
+    top: 56px;
+}
+
+.form__label{
+    border-bottom: 0.5px solid;
+    border-bottom-color: #e5e5e5;
+    display: flex;
+}
+
+.form__input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: $fontColorSecondary;
+    width: 280px;
+    font-family: $fonfFamily;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+      
+
+      @include tablet{
+        width: 336px;
+      }
+
+      @include desktop{
+        width:394px;
+      }
+}
+
+.form__input::placeholder {
+    color:$fontColorSecondary;
+}
+
+.form__button{
+    background: transparent;
+    width: 20px;
+    height: 20px;
+    display: contents;
+
+
+}
+.logo__wrapper{
+     @include tablet{
+        display:flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: center;
+    }
+}
+@media screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  .header {
+    background-image: url("../images/Background-Mobilex2.png");
+
+    @include tablet {
+        background-image: url("../images/Background-Tabletx2.png");
+
+        @include desktop{
+            background-image: url("../images/Background-Desktopx2.png");
+        }
+    }
+
+
+  }}
