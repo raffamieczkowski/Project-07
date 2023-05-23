@@ -2,7 +2,7 @@
   background: #f7f7f7;
   padding: 30px 0px;
 
-  &_content {
+  &__content {
     justify-content: center;
     font-family: $fonfFamily;
     font-style: normal;
@@ -17,12 +17,12 @@
     }
   }
 
-  &_svg {
+  &__svg {
     width: 14px;
     height: 15px;
   }
 
-  &_rights {
+  &__rights {
     padding-bottom: 10px;
 
     @media screen and (min-width: 768px) {
@@ -30,11 +30,11 @@
     }
   }
 
-  &_goit {
+  &__goit {
     padding-left: 6px;
   }
 
-  &_dev {
+  &__dev {
     padding-right: 6px;
 
     @media screen and (min-width: 768px) {
