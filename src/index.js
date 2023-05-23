@@ -1,3 +1,4 @@
+import './js/modal-movie';
 import { API_KEY } from './js/api-key';
 import { getGenres } from './js/genres';
 const trendingUrl = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
