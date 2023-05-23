@@ -12,12 +12,9 @@ $desktop: 1280px;
   }
 }
 
-//fonts
-
-@mixin text($weight, $size, $line, $color, $family) {
+@mixin text($weight, $size, $line, $color) {
   font-weight: $weight;
   font-size: $size;
   line-height: $line;
   color: $color;
-  font-family: $family;
 }
