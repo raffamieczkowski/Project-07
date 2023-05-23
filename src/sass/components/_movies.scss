@@ -6,23 +6,25 @@
   margin-top: 20px;
   max-width: 320px;
 }
-.movie-card {
-  width: 280px;
-}
-.movie-poster {
-  border-radius: 5px;
-  max-width: 100%;
-  cursor: pointer;
-}
-.movie-short-descr {
-  margin-top: 12px;
-  @include text(500, 12px, 16px, $fontColorPrimary, $fonfFamily);
-}
-.movie-title {
-  text-transform: uppercase;
-}
-.movie-genre {
-  color: $fontColorTertiary;
+.movie {
+  &__card {
+    width: 280px;
+  }
+  &__poster {
+    border-radius: 5px;
+    max-width: 100%;
+    cursor: pointer;
+  }
+  &__short-desc {
+    margin-top: 12px;
+    @include text(500, 12px, 16px, $fontColorPrimary, $fonfFamily);
+  }
+  &__title {
+    text-transform: uppercase;
+  }
+  &__genre {
+    color: $fontColorTertiary;
+  }
 }
 
 @include tablet {
@@ -31,8 +33,10 @@
     margin-top: 59px;
     max-width: 768px;
   }
-  .movie-card {
-    width: 336px;
+  .movie {
+    &__card {
+      width: 336px;
+    }
   }
 }
 
@@ -42,11 +46,12 @@
     margin-top: 60px;
     max-width: 1280px;
   }
-  .movie-card {
-    width: 394px;
-  }
-
-  .movie-short-descr {
-    @include text(500, 20px, 24px, $fontColorPrimary, $fonfFamily);
+  .movie {
+    &__card {
+      width: 394px;
+    }
+    &__short-descr {
+      @include text(500, 20px, 24px, $fontColorPrimary, $fonfFamily);
+    }
   }
 }
