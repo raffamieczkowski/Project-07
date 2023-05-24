@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteka</title>
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
-    <link rel="stylesheet" href="/src/sass/main.scss" />
+    <link rel="stylesheet" href="sass/main.scss" />
     <link rel="stylesheet" href="css/modern-normalize.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,11 +16,14 @@
     />
   </head>
   <body>
+    <!-- INCLUDES -->
     <include src="./partials/header.html"></include>
-    <include src="./partials/movies.html"></include>
-    <include src="./partials/modal-movie.html"></include>
-    <include src="./partials/footer.html"></include>
-
+    <main>
+      <include src="./partials/movies.html"></include>
+      <include src="./partials/modal-movie.html"></include>
+      <include src="./partials/footer.html"></include>
+    </main>
+    <!-- SCRIPTS -->
     <script src="./index.js" type="module"></script>
   </body>
 </html>
