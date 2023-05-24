@@ -17,7 +17,7 @@
   }
   &__short-desc {
     margin-top: 12px;
-    @include text(500, 12px, 16px, $fontColorPrimary, $fonfFamily);
+    @include text(500, 12px, 16px, $fontColorPrimary);
   }
   &__title {
     text-transform: uppercase;
@@ -51,7 +51,7 @@
       width: 394px;
     }
     &__short-descr {
-      @include text(500, 20px, 24px, $fontColorPrimary, $fonfFamily);
+      @include text(500, 20px, 24px, $fontColorPrimary);
     }
   }
 }

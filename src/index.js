@@ -1,3 +1,4 @@
+import './js/modal-movie';
 import { API_KEY } from './js/api-key';
 import { getGenres } from './js/genres';
 
