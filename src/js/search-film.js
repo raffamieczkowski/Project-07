@@ -4,7 +4,7 @@ import { getGenres } from "./genres";
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.header__form');
   const input = document.querySelector('.form__input');
-  const resultContainer = document.querySelector('.result-container');
+  const resultContainer = document.querySelector('.result__container');
   const searchButton = document.querySelector('.form__button');
 
   form.addEventListener('submit', handleFormSubmit);
