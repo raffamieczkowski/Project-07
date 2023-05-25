@@ -33,7 +33,11 @@
   &__poster {
     border-radius: 5px;
     max-width: 100%;
-    cursor: pointer;
+    cursor: zoom-out;
+    transition: transform cubic-bezier(0.165, 0.84, 0.44, 1) 250ms;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
   &__short-descr {
     margin-top: 12px;
