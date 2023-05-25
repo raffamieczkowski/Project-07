@@ -13,9 +13,9 @@ async function fetchMovies() {
     const genrePromises = movies.map(movie => getGenres(movie.id));
     const genres = await Promise.all(genrePromises);
 
-    movies.forEach((movie, index) => {
+    const markup = movies.map((movie, index) => {
       movie.genres = genres[index];
-      const markup = `<div class="movie__card">
+      return `<div class="movie__card">
         <a href="#"> <img class="movie__poster" src="https://image.tmdb.org/t/p/original${
           movie.poster_path
         }" /></a>
@@ -24,8 +24,9 @@ async function fetchMovies() {
           <li class="movie__genre">${movie.genres} | ${movie.release_date.slice(0, 4)}</li>
         </ul>
       </div>`;
-      moviesEL.insertAdjacentHTML('beforeend', markup);
-    });
+    }).join('');
+
+    moviesEL.insertAdjacentHTML('beforeend', markup);
   } catch (error) {
     console.error(error);
   }
