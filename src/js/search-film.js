@@ -1,5 +1,5 @@
-import { API_KEY } from "./api-key";
-import { getGenres } from "./genres";
+import { API_KEY } from './api-key';
+import { getGenres } from './genres';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.header__form');
@@ -15,12 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchTerm = input.value.trim();
     if (searchTerm !== '') {
       searchMovies(searchTerm);
+    } else {
+      window.location.href = '../index.html';
     }
   }
 
   async function searchMovies(searchTerm) {
     const apiKey = API_KEY;
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(searchTerm)}`;
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(
+      searchTerm,
+    )}`;
 
     try {
       const response = await fetch(url);
