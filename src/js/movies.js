@@ -1,5 +1,5 @@
-import { API_KEY } from './api-key';
-import { getGenres } from './genres';
+import { API_KEY } from "./api-key";
+import { getGenres } from "./genres";
 const trendingUrl = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
 const moviesEL = document.querySelector('.movies-list');
 
@@ -13,10 +13,9 @@ async function fetchMovies() {
     const genrePromises = movies.map(movie => getGenres(movie.id));
     const genres = await Promise.all(genrePromises);
 
-    const markup = movies
-      .map((movie, index) => {
-        movie.genres = genres[index];
-        return `<div class="movie__card">
+    const markup = movies.map((movie, index) => {
+      movie.genres = genres[index];
+      return `<div class="movie__card">
         <a href="#"> <img class="movie__poster" src="https://image.tmdb.org/t/p/original${
           movie.poster_path
         }" /></a>
@@ -25,8 +24,7 @@ async function fetchMovies() {
           <li class="movie__genre">${movie.genres} | ${movie.release_date.slice(0, 4)}</li>
         </ul>
       </div>`;
-      })
-      .join('');
+    }).join('');
 
     moviesEL.insertAdjacentHTML('beforeend', markup);
   } catch (error) {
@@ -35,5 +33,3 @@ async function fetchMovies() {
 }
 
 fetchMovies();
-
-export { fetchMovies };
