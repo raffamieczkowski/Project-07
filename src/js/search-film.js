@@ -1,5 +1,6 @@
 import { API_KEY } from './api-key';
 import { getGenres } from './genres';
+import { fetchMovies } from './movies';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.header__form');
@@ -16,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchTerm = input.value.trim();
     if (searchTerm !== '') {
       searchMovies(searchTerm);
+    } else {
+      resultContainer.innerHTML = '';
+      fetchMovies();
     }
   }
 
