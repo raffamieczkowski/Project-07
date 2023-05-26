@@ -1,11 +1,12 @@
-import { API_KEY } from "./api-key";
-import { getGenres } from "./genres";
+import { API_KEY } from './api-key';
+import { getGenres } from './genres';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.header__form');
   const input = document.querySelector('.form__input');
   const resultContainer = document.querySelector('.result__container');
   const searchButton = document.querySelector('.form__button');
+  const moviesEL = document.querySelector('.movies-list');
 
   form.addEventListener('submit', handleFormSubmit);
   searchButton.addEventListener('click', handleFormSubmit);
@@ -20,7 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function searchMovies(searchTerm) {
     const apiKey = API_KEY;
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(searchTerm)}`;
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(
+      searchTerm,
+    )}`;
 
     try {
       const response = await fetch(url);
@@ -35,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       displayMovies(movies);
+      moviesEL.innerHTML = ``;
     } catch (error) {
       console.log('An error occurred:', error);
     }
