@@ -2,7 +2,7 @@ import { API_KEY } from './api-key';
 import { getGenres } from './genres';
 import { createPagination } from './pagination';
 
-const resultContainer = document.querySelector('.result-container');
+const resultContainer = document.querySelector('.result__container');
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.header__form');
