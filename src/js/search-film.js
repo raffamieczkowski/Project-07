@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchTerm = input.value.trim();
     if (searchTerm !== '') {
       searchMovies(searchTerm);
+    } else {
+      window.location.href = '../index.html';
     }
   }
 
