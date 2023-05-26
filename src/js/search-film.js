@@ -7,6 +7,7 @@ const resultContainer = document.querySelector('.result__container');
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.header__form');
   const input = document.querySelector('.form__input');
+  const resultContainer = document.querySelector('.result__container');
   const searchButton = document.querySelector('.form__button');
   const moviesEL = document.querySelector('.movies-list');
 
@@ -23,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
       fetchMovies();
     }
   }
-});
 
 async function searchMovies(searchTerm) {
   const apiKey = API_KEY;
