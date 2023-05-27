@@ -415,6 +415,7 @@ img {
   flex-direction: column;
   width: 100%;
   z-index: 2;
+  border-radius: 5px;
 }
 @media screen and (min-width: 768px) {
   .modal-movie {
@@ -571,16 +572,22 @@ img {
   font-size: 12px;
   line-height: 1.3;
   color: #000;
-  border: none;
+  border: 1px solid #000;
   outline: none;
+  overflow: hidden;
+  position: absolute;
   cursor: pointer;
-  color: #fff;
-  background-color: #ff6b02;
+  background-color: #fff;
   border-radius: 5px;
   text-transform: uppercase;
   min-height: 44px;
   width: 110px;
   padding: 0 5px;
+}
+.modal-movie__btn-watched:hover {
+  background-color: #ff6b02;
+  color: #fff;
+  border: none;
 }
 @media screen and (min-width: 768px) {
   .modal-movie__btn-watched {
