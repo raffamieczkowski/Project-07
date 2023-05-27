@@ -4,11 +4,11 @@ function createModal(movie) {
 
   const markup = `
     <div class="modal-movie__poster-box">
-      <img class="modal-movie__poster" src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="${movie.original_title}" />
+      <img class="modal-movie__poster" src="https://image.tmdb.org/t/p/original${
+        movie.poster_path
+      }" alt="${movie.original_title}" />
     </div>
-    <button class="modal-movie__btn-close">
-    
-      <img src="src/images/close." alt="close" width="14px"/>
+    <button class="modal-movie__btn-close">&times
     </button>
 
     <div class="modal-movie__info">
@@ -17,12 +17,18 @@ function createModal(movie) {
       <ul class="modal-movie__list">
         <li class="modal-movie__item modal-movie__item--label">vote / votes</li>
         <li class="modal-movie__item modal-movie__item--value">
-          <span class="modal-movie__vote">${movie.vote_average}</span> <span>/ </span><span>${movie.vote_count}</span>
+          <span class="modal-movie__vote">${movie.vote_average.toFixed(
+            1,
+          )}</span> <span>/ </span><span>${movie.vote_count}</span>
         </li>
         <li class="modal-movie__item modal-movie__item--label">popularity</li>
-        <li class="modal-movie__item modal-movie__item--value"><span class="modal-movie__popularity">${movie.popularity}</span></li>
+        <li class="modal-movie__item modal-movie__item--value"><span class="modal-movie__popularity">${movie.popularity.toFixed(
+          1,
+        )}</span></li>
         <li class="modal-movie__item modal-movie__item--label">original title</li>
-        <li class="modal-movie__item modal-movie__item--value"><span class="modal-movie__original-title">${movie.original_title}</span></li>
+        <li class="modal-movie__item modal-movie__item--value"><span class="modal-movie__original-title">${
+          movie.original_title
+        }</span></li>
         <li class="modal-movie__item modal-movie__item--label">genre</li>
         <li class="modal-movie__item modal-movie__item--value"><span class="modal-movie__genre"></span></li>
       </ul>

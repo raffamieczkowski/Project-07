@@ -14,6 +14,9 @@
   transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 20px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
 }
 
 .modal-movie {
@@ -27,6 +30,9 @@
   flex-direction: column;
   width: 100%;
   z-index: 2;
+  border-radius: $borderRadius;
+  overflow-x: hidden;
+  overflow-y: visible;
   @include tablet {
     max-width: 704px;
     display: flex;
@@ -40,6 +46,7 @@
     padding: 40px 12px;
   }
   &__btn-close {
+    font-size: 30px;
     cursor: pointer;
     border: none;
     outline: none;
@@ -49,7 +56,7 @@
     transition: $transitionTimingFunction;
     display: flex;
     position: absolute;
-    top: 16px;
+    top: 8px;
     right: 16px;
   }
   &__poster-box {
@@ -143,16 +150,25 @@
   }
   &__btn-watched {
     @include text(500, 12px, 1.3, $fontColorPrimary);
-    border: none;
+    border: 1px solid $fontColorPrimary;
     outline: none;
     cursor: pointer;
-    color: $fontColorSecondary;
-    background-color: $fontColorTertiary;
+    background-color: $fontColorSecondary;
     border-radius: $borderRadius;
+    overflow: hidden;
     text-transform: uppercase;
     min-height: 44px;
     width: 110px;
     padding: 0 5px;
+    transition-timing-function: $transitionTimingFunction;
+    transition-duration: $transitionDuration;
+
+    &:hover {
+      background-color: $fontColorTertiary;
+      color: $fontColorSecondary;
+      border: none;
+    }
+
     @include tablet {
       width: 125px;
     }
@@ -171,6 +187,13 @@
     min-height: 44px;
     width: 110px;
     padding: 0 5px;
+    transition-timing-function: $transitionTimingFunction;
+    transition-duration: $transitionDuration;
+    &:hover {
+      background-color: $fontColorTertiary;
+      color: $fontColorSecondary;
+      border: none;
+    }
 
     @include tablet {
       width: 125px;
