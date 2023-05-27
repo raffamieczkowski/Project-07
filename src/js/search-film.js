@@ -1,15 +1,12 @@
 import { API_KEY } from './api-key';
 import { getGenres } from './genres';
 import { createPagination } from './pagination';
-
 const resultContainer = document.querySelector('.result__container');
-
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.header__form');
   const input = document.querySelector('.form__input');
-  const resultContainer = document.querySelector('.result__container');
+
   const searchButton = document.querySelector('.form__button');
-  const moviesEL = document.querySelector('.movies-list');
 
   form.addEventListener('submit', handleFormSubmit);
   searchButton.addEventListener('click', handleFormSubmit);
@@ -24,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fetchMovies();
     }
   }
+});
 
 async function searchMovies(searchTerm) {
   const apiKey = API_KEY;
