@@ -1,6 +1,9 @@
 import { API_KEY } from './api-key';
 import { getGenres } from './genres';
 import { createPagination } from './pagination';
+
+import { openModal } from './modal-movie';
+
 const resultContainer = document.querySelector('.result__container');
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.header__form');
@@ -71,6 +74,14 @@ function createMovieCard(movie) {
   movieCard.appendChild(movieLink);
   movieCard.appendChild(movieShortDescr);
 
+  moviePoster.addEventListener('click', e => {
+    e.preventDefault();
+    const backdrop = document.querySelector('.backdrop');
+    backdrop.classList.remove('is-hidden');
+    openModal(movie);
+  });
+
   return movieCard;
 }
+
 export { displayMovies };
