@@ -1,8 +1,10 @@
 import { API_KEY } from './api-key';
 import { createPagination } from './pagination';
 import { trendingMovies } from './movies';
+import { getPosterLink } from './poster';
 
 import { openModal } from './modal-movie';
+import { getPosterLink } from './poster';
 
 const resultContainer = document.querySelector('.result__container');
 document.addEventListener('DOMContentLoaded', () => {
@@ -55,7 +57,7 @@ function createMovieCard(movie) {
 
   const moviePoster = document.createElement('img');
   moviePoster.classList.add('movie__poster');
-  moviePoster.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+  moviePoster.src = `${getPosterLink(movie)}`;
   movieLink.appendChild(moviePoster);
 
   const movieShortDescr = document.createElement('ul');
