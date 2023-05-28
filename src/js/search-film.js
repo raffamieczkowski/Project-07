@@ -1,6 +1,6 @@
 import { API_KEY } from './api-key';
-import { getGenres } from './genres';
 import { createPagination } from './pagination';
+import { trendingMovies } from './movies';
 
 import { openModal } from './modal-movie';
 
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       searchMovies(searchTerm);
     } else {
       resultContainer.innerHTML = '';
-      fetchMovies();
+      trendingMovies();
     }
   }
 });
