@@ -18,7 +18,7 @@ function createPaginationButton(text, isDisabled, isCurrent) {
 async function createPagination(url) {
   try {
     const response = await fetch(`${url}&page=${currentPage}`);
-    console.log(response);
+    // console.log(response);
     const data = await response.json();
     const totalPages = Math.ceil(data.total_pages / itemsPerPage);
     const genrePromises = data.results.map(movie => getGenres(movie.id));

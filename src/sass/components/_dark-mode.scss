@@ -1,0 +1,64 @@
+.dark-mode {
+  background-color: rgb(53, 53, 53);
+  color: white;
+}
+body.dark-mode .movie__title {
+  color: $fontColorSecondary;
+}
+body.dark-mode .pagination-button {
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+}
+body.dark-mode .pagination-button--current {
+  color: $fontColorTertiary;
+}
+body.dark-mode .pagination-button--next {
+  background-color: $fontColorQuaternary;
+}
+body.dark-mode .pagination-button--previous {
+  background-color: $fontColorQuaternary;
+}
+body.dark-mode .backdrop {
+  background-color: rgba(126, 126, 126, 0.589);
+}
+body.dark-mode .modal-movie {
+  background-color: rgb(53, 53, 53);
+  box-shadow: 0px 0px 10px 1px rgb(102, 102, 102);
+}
+body.dark-mode .modal-movie__item--label {
+  color: rgb(173, 173, 173);
+}
+body.dark-mode .modal-movie__list > li > span:last-child {
+  background-color: transparent;
+  color: white;
+}
+body.dark-mode .modal-movie__title {
+  color: white;
+}
+body.dark-mode .modal-movie__text {
+  color: white;
+}
+body.dark-mode .modal-movie__about {
+  color: white;
+}
+body.dark-mode .modal-movie__btn-close {
+  color: white;
+}
+body.dark-mode .modal-movie__btn-queue {
+  color: white;
+  background-color: rgb(92, 92, 92);
+  border: none;
+}
+body.dark-mode .modal-movie__btn-queue:hover {
+  color: white;
+  background-color: $fontColorTertiary;
+}
+body.dark-mode .modal-movie__btn-watched {
+  color: white;
+  background-color: rgb(92, 92, 92);
+  border: none;
+}
+body.dark-mode .modal-movie__btn-watched:hover {
+  color: white;
+  background-color: $fontColorTertiary;
+}

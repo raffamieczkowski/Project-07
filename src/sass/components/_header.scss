@@ -23,6 +23,12 @@
     background-color: $fontColorPrimary;
   }
 }
+.header__toggle {
+  transition: $transitionDuration $transitionTimingFunction;
+}
+.header__toggle:hover {
+  transform: scale(1.1);
+}
 
 .header__nav {
   display: flex;
@@ -35,6 +41,7 @@
   display: flex;
   gap: 40px;
   text-align: center;
+  align-items: center;
 }
 
 .logo__icon {
@@ -57,6 +64,7 @@
   }
 }
 .header__navigation-link {
+  display: inline-block;
   text-decoration: none;
   color: $fontColorSecondary;
   font-family: $fonfFamily;
@@ -64,12 +72,17 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
+  transition: $transitionDuration $transitionTimingFunction;
+}
+.header__navigation-link:hover {
+  transform: scale(1.05);
 }
 
 .header__primary-link,
 .header-library__secondary-link {
   position: relative;
   transition: color $transitionDuration $transitionTimingFunction;
+  transition: $transitionDuration $transitionTimingFunction;
 }
 .header__primary-link::after,
 .header-library__secondary-link::after {
@@ -94,6 +107,10 @@
   border-bottom: 0.5px solid;
   border-bottom-color: #e5e5e5;
   display: flex;
+  transition: $transitionDuration $transitionTimingFunction;
+}
+.form__label:hover {
+  transform: scale(1.02);
 }
 
 .form__input {
@@ -133,7 +150,11 @@
     align-items: center;
     gap: 8px;
     justify-content: center;
+    transition: $transitionDuration $transitionTimingFunction;
   }
+}
+.logo__wrapper:hover {
+  transform: scale(1.01);
 }
 @media screen and (min-device-pixel-ratio: 2),
   screen and (min-resolution: 192dpi),

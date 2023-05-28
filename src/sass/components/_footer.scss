@@ -31,9 +31,13 @@
   }
 
   &__goit {
+    display: inline-block;
+    transition: $transitionTimingFunction $transitionDuration;
     padding-left: 6px;
+    &:hover {
+      transform: scale(1.02);
+    }
   }
-
   &__dev {
     padding-right: 6px;
 
