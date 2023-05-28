@@ -1,35 +1,70 @@
+// localStorage.clear()
+const resultsContainer = document.querySelector('.modal-movie');
+resultsContainer.addEventListener('click', ev => {
+  const clickedElement = ev.target;
 
-class QueueLS {
-    // check from localStorage
-    getFromLS(){
-        let movies;
-        if (localStorage.getItem('movies')=== null) {
-             movies = []
-        } else {
-            movies = JSON.parse (localStorage.getItem ("movies"))
-        }
-        return movies;
-    }
-    // save to localStorage
-    saveIntoLS (movie) {
-        const movies = this.getFromLS();
-        movies.push(movie);
-        localStorage.setItem("movies", JSON.stringify(movies))
-    }
-}
-const movieQueue = new QueueLS()
+  if (clickedElement.classList.contains('modal-movie__btn-queue')) {
+    // Pobranie informacji o filmie z atrybutów danych
+    const movieId = clickedElement.dataset.id;
+    const movieTitle = clickedElement.dataset.title;
+    const movieDate = clickedElement.dataset.date;
+    const movieGenres = clickedElement.dataset.genres;
 
-document.addEventListener('click', (e)=>{
-    if(e.target.classList.contains('modal-movie__btn-queue')){
-        const cardBody = e.target.offsetParent
-        const movieInfo = {
-            id: e.target.dataset.id,
-            name: cardBody.querySelector(".modal-movie__title").textContent,
-            poster: cardBody.querySelector(".modal-movie__poster").src
-        }
-        // console.log(movieInfo)
-        movieQueue.saveIntoLS(movieInfo)
+    const movie = {
+      id: movieId,
+      title: movieTitle,
+      date: movieDate,
+      genres: movieGenres,
+    };
+    handleSaveButtonClick(movie);
+    displayMovieListFromLocalStorage(movie);
   }
-})
-localStorage.clear()
+});
 
+function getMovieListFromLocalStorage() {
+  // Pobranie listy filmów z localStorage
+  const movieListString = localStorage.getItem('movieList');
+
+  // Konwersja ciągu znaków na obiekt JavaScript
+  const movieList = JSON.parse(movieListString);
+
+  return movieList;
+}
+
+function saveMovieToLocalStorage(movie) {
+  // Pobranie listy filmów z localStorage
+  const storedMovieList = getMovieListFromLocalStorage() || [];
+
+  // Sprawdzenie, czy dany film już istnieje na liście
+  const existingMovie = storedMovieList.find(item => item.id === movie.id);
+
+  if (!existingMovie) {
+    // Dodanie filmu do listy
+    storedMovieList.push(movie);
+
+    // Konwertowanie listy filmów na ciąg znaków (string)
+    const movieListString = JSON.stringify(storedMovieList);
+
+    // Zapisanie zaktualizowanej listy filmów w localStorage
+    localStorage.setItem('movieList', movieListString);
+
+    console.log('Film został zapisany w localStorage.');
+  } else {
+    console.log('Ten film już istnieje na liście.');
+  }
+}
+
+function handleSaveButtonClick(movie) {
+  // Zapisanie filmu do localStorage
+  saveMovieToLocalStorage(movie);
+}
+
+function displayMovieListFromLocalStorage() {
+  // Pobranie listy filmów z localStorage
+  const movieList = getMovieListFromLocalStorage();
+
+  // Wyświetlanie listy filmów
+  movieList.forEach(movie => {
+    console.log(movie.title);
+  });
+}
