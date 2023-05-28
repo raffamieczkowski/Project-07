@@ -1,0 +1,67 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -40%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.cookies {
+  position: fixed;
+  bottom: -10%;
+  right: -10%;
+  width: 350px;
+  height: 230px;
+  background-color: #f2f2f2;
+  border-radius: 5%;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  animation: float 3s ease-in-out infinite, fadeIn 1s ease-in-out;
+  z-index: 9998;
+  display: none;
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -50%;
+    z-index: 9999;
+    background-image: url(/src/images/cookie.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    width: 100%;
+    height: 100%;
+  }
+  &__text {
+    @include text(400, 21px, 1.2, $fontColorPrimary);
+    font-family: $fonfFamily;
+    margin-top: 65px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  &__btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
