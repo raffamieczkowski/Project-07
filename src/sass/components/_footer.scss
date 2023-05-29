@@ -1,19 +1,14 @@
 .footer {
-  background: #f7f7f7;
+  background: $footerBg;
   padding: 30px 0px;
 
   &__content {
-    justify-content: center;
-    font-family: $fonfFamily;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.14;
+    @include text(400, 14px, 1.14, $fontColorQuaternary);
     text-align: center;
-    color: $fontColorQuaternary;
 
-    @media screen and (min-width: 768px) {
+    @include tablet {
       display: flex;
+      justify-content: center;
     }
   }
 
@@ -25,24 +20,26 @@
   &__rights {
     padding-bottom: 10px;
 
-    @media screen and (min-width: 768px) {
+    @include tablet {
       padding-bottom: 0px;
     }
   }
 
   &__goit {
-    display: inline-block;
-    transition: $transitionTimingFunction $transitionDuration;
     padding-left: 6px;
-    &:hover {
-      transform: scale(1.02);
-    }
   }
+
   &__dev {
     padding-right: 6px;
 
-    @media screen and (min-width: 768px) {
+    @include tablet {
       padding-left: 5px;
     }
+  }
+
+  &__link {
+    text-decoration: underline;
+    color: $fontColorQuaternary;
+    cursor: pointer;
   }
 }
