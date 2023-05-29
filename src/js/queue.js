@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+
 // localStorage.clear()
 const modalContainer = document.querySelector('.modal-movie');
 modalContainer.addEventListener('click', ev => {
@@ -17,7 +19,7 @@ modalContainer.addEventListener('click', ev => {
       genres: movieGenres,
     };
     handleSaveButtonClick(movie);
-    displayMovieListFromLocalStorage(movie);
+    // displayMovieListFromLocalStorage(movie);
   }
 });
 
@@ -41,16 +43,17 @@ function saveMovieToLocalStorage(movie) {
   if (!existingMovie) {
     // Dodanie filmu do listy
     storedMovieList.push(movie);
-
+    Notiflix.Notify.success('Movie has been added to your queue');
     // Konwertowanie listy filmów na ciąg znaków (string)
     const movieListString = JSON.stringify(storedMovieList);
 
     // Zapisanie zaktualizowanej listy filmów w localStorage
     localStorage.setItem('movieList', movieListString);
 
-    console.log('Film został zapisany w localStorage.');
+    // console.log('Film został zapisany w localStorage.');
   } else {
-    console.log('Ten film już istnieje na liście.');
+    // console.log('Ten film już istnieje na liście.');
+    Notiflix.Notify.failure('Movie is already in your queue');
   }
 }
 
@@ -59,13 +62,12 @@ function handleSaveButtonClick(movie) {
   saveMovieToLocalStorage(movie);
 }
 
-function displayMovieListFromLocalStorage() {
-  // Pobranie listy filmów z localStorage
-  const movieList = getMovieListFromLocalStorage();
+// function displayMovieListFromLocalStorage() {
+//   // Pobranie listy filmów z localStorage
+//   const movieList = getMovieListFromLocalStorage();
 
-  // Wyświetlanie listy filmów
-  movieList.forEach(movie => {
-    console.log(movie.title);
-  });
-}
-
+//   // Wyświetlanie listy filmów
+//   movieList.forEach(movie => {
+//     console.log(movie.title);
+//   });
+// }
