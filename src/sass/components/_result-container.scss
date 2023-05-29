@@ -5,6 +5,7 @@
     margin: 0 auto;
     margin-top: 20px;
     max-width: 320px;
+    justify-content: center;
   
     @include tablet {
       gap: 32px;
