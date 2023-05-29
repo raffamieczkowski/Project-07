@@ -1,4 +1,5 @@
 import './js/modal-movie';
+import './js/trailer';
 import './js/movies';
 import './js/search-film';
 import './js/pagination';

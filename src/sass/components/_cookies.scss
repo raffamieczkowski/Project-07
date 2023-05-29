@@ -21,10 +21,12 @@
 
 .cookies {
   position: fixed;
-  bottom: -10%;
-  right: -10%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 350px;
-  height: 230px;
+  height: 220px;
   background-color: #f2f2f2;
   border-radius: 5%;
   text-align: center;
@@ -46,7 +48,7 @@
     height: 100%;
   }
   &__text {
-    @include text(400, 21px, 1.2, $fontColorPrimary);
+    @include text(400, 19px, 1.2, $fontColorPrimary);
     font-family: $fonfFamily;
     margin-top: 65px;
     padding-right: 10px;

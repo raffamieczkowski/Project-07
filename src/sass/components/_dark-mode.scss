@@ -62,3 +62,18 @@ body.dark-mode .modal-movie__btn-watched:hover {
   color: white;
   background-color: $fontColorTertiary;
 }
+body.dark-mode .modal-movie__btn-trailer {
+  color: white;
+  background-color: rgb(92, 92, 92);
+  border: none;
+}
+body.dark-mode .modal-movie__btn-trailer:hover {
+  color: white;
+  background-color: $fontColorTertiary;
+}
+body.dark-mode .footer {
+  background-color: rgb(32, 32, 32);
+}
+body.dark-mode .footer__content {
+  color: white;
+}
