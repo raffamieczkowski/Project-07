@@ -1,4 +1,4 @@
-import { getGenres } from './genres';
+import { getPosterLink } from './poster';
 
 function createModal(movie) {
   const modalMovieEl = document.querySelector('.modal-movie');
@@ -6,9 +6,7 @@ function createModal(movie) {
 
   const markup = `
     <div class="modal-movie__poster-box">
-      <img class="modal-movie__poster" src="https://image.tmdb.org/t/p/original${
-        movie.poster_path
-      }" alt="${movie.original_title}" />
+      <img class="modal-movie__poster" src=${getPosterLink(movie)} alt="${movie.original_title}" />
     </div>
     <button class="modal-movie__btn-close">&times
     </button>
