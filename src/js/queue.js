@@ -5,30 +5,21 @@ modalContainer.addEventListener('click', ev => {
 
   if (clickedElement.classList.contains('modal-movie__btn-queue')) {
     // Pobranie informacji o filmie z atrybutów danych
-    const movieId = clickedElement.dataset.id;
-    const movieTitle = clickedElement.dataset.title;
-    const movieDate = clickedElement.dataset.date;
-    const movieGenres = clickedElement.dataset.genres;
-
-    const movie = {
-      id: movieId,
-      title: movieTitle,
-      date: movieDate,
-      genres: movieGenres,
-    };
+    const movie = JSON.parse(clickedElement.dataset.movie);
+    console.log(movie)
     handleSaveButtonClick(movie);
-    displayMovieListFromLocalStorage(movie);
+    displayMovieListFromLocalStorage();
   }
 });
 
 function getMovieListFromLocalStorage() {
   // Pobranie listy filmów z localStorage
-  const movieListString = localStorage.getItem('movieList');
+  const movieListString = localStorage.getItem('queueList');
 
   // Konwersja ciągu znaków na obiekt JavaScript
-  const movieList = JSON.parse(movieListString);
+  const queueList = JSON.parse(movieListString);
 
-  return movieList;
+  return queueList;
 }
 
 function saveMovieToLocalStorage(movie) {
@@ -46,7 +37,7 @@ function saveMovieToLocalStorage(movie) {
     const movieListString = JSON.stringify(storedMovieList);
 
     // Zapisanie zaktualizowanej listy filmów w localStorage
-    localStorage.setItem('movieList', movieListString);
+    localStorage.setItem('queueList', movieListString);
 
     console.log('Film został zapisany w localStorage.');
   } else {
@@ -61,11 +52,39 @@ function handleSaveButtonClick(movie) {
 
 function displayMovieListFromLocalStorage() {
   // Pobranie listy filmów z localStorage
-  const movieList = getMovieListFromLocalStorage();
+  const queueList = getMovieListFromLocalStorage();
 
   // Wyświetlanie listy filmów
-  movieList.forEach(movie => {
+  queueList.forEach(movie => {
     console.log(movie.title);
   });
 }
 
+// function saveMovieToLocalStorage(movie, listType) {
+//   const storedMovieList = getMovieListFromLocalStorage(listType) || [];
+//   const otherListType = listType === 'queueList' ? 'watchedList' : 'queueList';
+//   const otherList = getMovieListFromLocalStorage(otherListType) || [];
+
+//   const existingMovieIndex = storedMovieList.findIndex(item => item.id === movie.id);
+//   const existingMovieInOtherList = otherList.some(item => item.id === movie.id);
+
+//   if (!existingMovieIndex) {
+//     storedMovieList.push(movie);
+//     localStorage.setItem(listType, JSON.stringify(storedMovieList));
+//     console.log('Film został zapisany w localStorage.');
+//   } else {
+//     console.log('Ten film już istnieje na liście.');
+//   }
+
+//   if (existingMovieInOtherList) {
+//     removeMovieFromLocalStorage(movie, otherListType);
+//     console.log('Film został usunięty z drugiej listy.');
+//   }
+// }
+
+// function removeMovieFromLocalStorage(movie, listType) {
+//   const storedMovieList = getMovieListFromLocalStorage(listType) || [];
+//   const updatedMovieList = storedMovieList.filter(item => item.id !== movie.id);
+//   localStorage.setItem(listType, JSON.stringify(updatedMovieList));
+//   console.log('Film został usunięty z localStorage.');
+// }

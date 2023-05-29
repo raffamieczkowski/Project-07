@@ -42,7 +42,7 @@ function createModal(movie) {
       <div class="modal-movie__btns">
        <div class="modal-movie__box"> 
         <button class="modal-movie__btn-watched">add to watched</button>
-        <button class="modal-movie__btn-queue" data-id='${movie.id}' data-title='${movie.title}' data-date='${movie.release_date.slice(0, 4)}' data-genres='${movie.genres}'>add to queue</button>
+        <button class="modal-movie__btn-queue" data-movie='${JSON.stringify(movie)}'>add to queue</button>
       </div>
   
   <div class="modal-movie__trailer-box"> 
