@@ -1,5 +1,5 @@
 import { API_KEY } from './api-key';
-import { createPagination } from './pagination';
+import { createPagination, setCurrentPage } from './pagination';
 import { trendingMovies } from './movies';
 import { getPosterLink } from './poster';
 
@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       searchMovies(searchTerm);
     } else {
       resultContainer.innerHTML = '';
+      setCurrentPage(1);
       trendingMovies();
     }
   }
@@ -33,7 +34,7 @@ async function searchMovies(searchTerm) {
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(
     searchTerm,
   )}`;
-
+  setCurrentPage(1);
   (async () => {
     createPagination(url);
   })();
