@@ -38,17 +38,19 @@ function createModal(movie) {
         <h3 class="modal-movie__about">about</h3>
         <p class="modal-movie__text">${movie.overview}</p>
       </div>
-    <div class="modal-movie__btns">
-    <div class="modal-movie__box"> 
-  <button class="modal-movie__btn-watched">add to watched</button>
-  <button class="modal-movie__btn-queue" data-id=${movie.id}>add to queue</button>  
-  </div>     
+      
+      <div class="modal-movie__btns">
+       <div class="modal-movie__box"> 
+        <button class="modal-movie__btn-watched">add to watched</button>
+        <button class="modal-movie__btn-queue" data-id='${movie.id}' data-title='${movie.title}' data-date='${movie.release_date.slice(0, 4)}' data-genres='${movie.genres}'>add to queue</button>
+      </div>
+  
   <div class="modal-movie__trailer-box"> 
   <button class="modal-movie__btn-trailer" data-id=${
     movie.id
   } data-btn=watchTrailer type="button">🎬 <span class="modal-movie__trailer-text">watch trailer</span></button>   
   </div>        
-</div>  
+</div>
     </div>
   `;
   modalMovieEl.innerHTML = markup;
