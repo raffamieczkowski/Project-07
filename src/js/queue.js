@@ -1,6 +1,6 @@
 // localStorage.clear()
-const resultsContainer = document.querySelector('.modal-movie');
-resultsContainer.addEventListener('click', ev => {
+const modalContainer = document.querySelector('.modal-movie');
+modalContainer.addEventListener('click', ev => {
   const clickedElement = ev.target;
 
   if (clickedElement.classList.contains('modal-movie__btn-queue')) {
@@ -68,3 +68,4 @@ function displayMovieListFromLocalStorage() {
     console.log(movie.title);
   });
 }
+
