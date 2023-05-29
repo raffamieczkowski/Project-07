@@ -1,28 +1,15 @@
 import { getPosterLink } from './poster';
 import { openModal } from './modal-movie';
+
 const buttons = document.querySelector('.header-library__buttons-list');
 const resultContainer = document.querySelector('.result__container');
-// Problem z włączeniem modala w library
 
-// resultContainer.addEventListener('click', e => {
-//   if (e.target.classList.contains('movie__poster')) {
-//     console.log('clicked');
-//     e.preventDefault();
-//     const backdrop = document.querySelector('.backdrop');
-//     backdrop.classList.remove('is-hidden');
-//     openModal(movie);
-//   }
-// });
-
-// Koniec
 buttons.addEventListener('click', e => {
   if (e.target.classList.contains('header-library__buttons-item')) {
     if (e.target.textContent === 'WATCHED') {
-      console.log('watched');
       hideItem(resultContainer);
     }
     if (e.target.textContent === 'QUEUE') {
-      console.log('queue');
       showItem(resultContainer);
     }
   }
@@ -37,8 +24,7 @@ function showItem(item) {
 }
 
 function displayQueue() {
-  const resultContainer = document.querySelector('.result__container');
-  const queuedMovies = localStorage.getItem('movieList');
+  const queuedMovies = localStorage.getItem('queueList');
   if (queuedMovies) {
     const movieList = JSON.parse(queuedMovies);
     movieList.forEach(movie => {
@@ -51,7 +37,6 @@ function displayQueue() {
       </div>`;
 
       resultContainer.insertAdjacentHTML('beforeend', movieCard);
-
     });
   } else {
     console.log('Brak filmów w kolejce.');
