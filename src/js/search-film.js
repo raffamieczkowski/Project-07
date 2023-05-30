@@ -1,10 +1,9 @@
 import { API_KEY } from './api-key';
 import { createPagination, setCurrentPage } from './pagination';
-import { trendingMovies } from './movies';
 import { getPosterLink } from './poster';
 
 import { openModal } from './modal-movie';
-import { getPosterLink } from './poster';
+import Notiflix from 'notiflix';
 
 const resultContainer = document.querySelector('.result__container');
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,13 +34,17 @@ async function searchMovies(searchTerm) {
     searchTerm,
   )}`;
   setCurrentPage(1);
-  (async () => {
-    createPagination(url);
-  })();
+  createPagination(url);
 }
 
 function displayMovies(results) {
   resultContainer.innerHTML = '';
+
+  if (results.length === 0) {
+    showErrorMessage();
+    trendingMovies();
+    return;
+  }
 
   results.forEach(movie => {
     const movieCard = createMovieCard(movie);
@@ -87,4 +90,16 @@ function createMovieCard(movie) {
   return movieCard;
 }
 
-export { displayMovies };
+function showErrorMessage() {
+  Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and try again');
+}
+
+async function trendingMovies() {
+  const apiKey = API_KEY;
+  const trendingUrl = `https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key=${apiKey}`;
+  createPagination(trendingUrl);
+}
+
+trendingMovies();
+
+export { displayMovies, trendingMovies };
