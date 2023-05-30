@@ -41,7 +41,7 @@ function renderPagination(totalPages, url) {
   const paginationContainer = document.querySelector('.pagination-container');
   paginationContainer.innerHTML = '';
 
-  const previousButton = createPaginationButton('🡨', currentPage === 1, false);
+  const previousButton = createPaginationButton('◀', currentPage === 1, false);
   previousButton.addEventListener('click', async () => {
     currentPage--;
     await createPagination(url);
@@ -108,7 +108,7 @@ function renderPagination(totalPages, url) {
       paginationContainer.appendChild(lastPageButton);
     }
   }
-  const nextButton = createPaginationButton('🡪', currentPage === totalPages, false);
+  const nextButton = createPaginationButton('▶', currentPage === totalPages, false);
   nextButton.addEventListener('click', async () => {
     currentPage++;
     await createPagination(url);
