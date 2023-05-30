@@ -1,3 +1,15 @@
+@keyframes animate360 {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
 .header {
   background: url('../images/Background-Mobile.png');
   background-size: cover;
@@ -45,6 +57,7 @@
 }
 
 .logo__icon {
+  animation: animate360 3000ms cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
   fill: transparent;
   stroke: $fontColorSecondary;
 }
