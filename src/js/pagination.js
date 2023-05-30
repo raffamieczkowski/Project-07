@@ -1,5 +1,6 @@
 import { displayMovies } from './search-film';
 import { getGenres } from './genres';
+import { showLoader, hideLoader } from './loader';
 
 let currentPage = 1;
 const itemsPerPage = 20;
@@ -20,6 +21,7 @@ function createPaginationButton(text, isDisabled, isCurrent) {
 
 async function createPagination(url) {
   try {
+    showLoader();
     const response = await fetch(`${url}&page=${currentPage}`);
     const data = await response.json();
     const totalPages = Math.ceil(data.total_pages / itemsPerPage);
@@ -32,6 +34,7 @@ async function createPagination(url) {
 
     displayMovies(data.results);
     renderPagination(totalPages, url);
+    hideLoader();
   } catch (error) {
     console.log('Error', error);
   }
