@@ -54,4 +54,23 @@
   &__genre {
     color: $fontColorTertiary;
   }
+  &__genre--list {
+    display: flex;
+    gap: 8px;
+  }
+  &__vote {
+    background-color: $fontColorTertiary;
+    @include text(500, 12px, 14px, $fontColorSecondary);
+    width: 36px;
+    height: 16px;
+    border-radius: 5px;
+    padding-top: 1px;
+    text-align: center;
+
+    @include desktop {
+      width: 40px;
+      height: 20px;
+      padding-top: 3px;
+    }
+  }
 }

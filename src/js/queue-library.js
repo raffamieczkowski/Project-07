@@ -32,7 +32,11 @@ function displayQueue() {
         <a href="#"><img class="movie__poster" src='${getPosterLink(movie)}'></a>
         <ul class="movie__short-descr">
           <li class="movie__title">${movie.title}</li>
-          <li class="movie__genre">${movie.genres} | ${movie.release_date.slice(0, 4)}</li>
+          <li class="movie__genre movie__genre--list">${movie.genres} | ${movie.release_date.slice(
+        0,
+        4,
+      )} <span class="movie__vote">${movie.vote_average.toFixed(1)}</span></li>
+      
         </ul>
       </div>`;
 
