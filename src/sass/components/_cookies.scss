@@ -24,15 +24,21 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 350px;
+  width: 300px;
   height: 220px;
   background-color: $cookiesBg;
-  border-radius: 5%;
+  border-radius: 5px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   animation: float 3s ease-in-out infinite, fadeIn 1s ease-in-out;
   z-index: 9998;
   display: none;
+  @include tablet {
+    width: 350px;
+  }
+  @include desktop {
+    width: 350px;
+  }
   &::after {
     content: '';
     display: block;

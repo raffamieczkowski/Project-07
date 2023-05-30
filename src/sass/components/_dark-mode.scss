@@ -10,7 +10,12 @@ body.dark-mode .pagination-button {
   background-color: transparent;
 }
 body.dark-mode .pagination-button--current {
-  color: $fontColorTertiary;
+  background-color: $fontColorTertiary;
+  color: white;
+}
+body.dark-mode
+  .pagination-button:disabled:not(.pagination-button--next, .pagination-button--previous) {
+  color: white;
 }
 body.dark-mode .pagination-button--next {
   background-color: $fontColorQuaternary;
