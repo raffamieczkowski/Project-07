@@ -10,7 +10,7 @@
   bottom: 0;
   right: 0;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: $backdropBg;
   transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 20px;
@@ -106,7 +106,7 @@
     gap: 8px;
   }
   &__item--label {
-    color: #8c8c8c;
+    color: $modalMovieItemLabel;
   }
   &__list > li > span:first-child {
     color: $fontColorSecondary;
@@ -115,11 +115,11 @@
     padding: 1px 8px;
   }
   &__list > li > span {
-    color: #8c8c8c;
+    color: $modalMovieItemSlash;
   }
   &__list > li > span:last-child {
     color: $fontColorPrimary;
-    background-color: #f7f7f7;
+    background-color: $modalMovieItemValueBg;
     border-radius: $borderRadius;
     padding: 1px 4px;
   }
