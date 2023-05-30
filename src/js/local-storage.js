@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+
 // localStorage.clear()
 const modalContainer = document.querySelector('.modal-movie');
 modalContainer.addEventListener('click', ev => {
@@ -8,11 +10,13 @@ modalContainer.addEventListener('click', ev => {
     console.log(movie);
     handleSaveButtonClick(movie, 'queueList', 'watchedList');
     displayMovieListFromLocalStorage('queueList');
+    Notiflix.Notify.success('Success! Added to queue.');
   } else if (clickedElement.classList.contains('modal-movie__btn-watched')) {
     const movie = JSON.parse(clickedElement.dataset.movie);
     console.log(movie);
     handleSaveButtonClick(movie, 'watchedList', 'queueList');
     displayMovieListFromLocalStorage('watchedList');
+    Notiflix.Notify.success('Success! Added to watched.');
   }
 });
 
@@ -43,7 +47,7 @@ function saveMovieToLocalStorage(movie, key, otherKey) {
         console.log('Film został usunięty z drugiej listy.');
       }
     }
-  } 
+  }
 }
 
 function handleSaveButtonClick(movie, key, otherKey) {
