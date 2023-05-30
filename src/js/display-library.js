@@ -67,9 +67,9 @@ function createMovieCard(movie) {
       <ul class="movie__short-descr">
         <li class="movie__title">${movie.title}</li>
         <li class="movie__genre movie__genre--list">${movie.genres} | ${movie.release_date.slice(
-        0,
-        4,
-      )} <span class="movie__vote">${movie.vote_average.toFixed(1)}</span></li>
+    0,
+    4,
+  )} <span class="movie__vote">${movie.vote_average.toFixed(1)}</span></li>
       </ul>
     </div>
   `;
@@ -77,4 +77,4 @@ function createMovieCard(movie) {
   return movieCard;
 }
 
-displayQueue()
+displayQueue();
