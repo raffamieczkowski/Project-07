@@ -61,12 +61,12 @@ function closeModal() {
   backdrop.classList.add('is-hidden');
 }
 
-function displayQueue() {
-  const queuedMovies = localStorage.getItem('queueList');
-  const queueMoviesContainer = document.querySelector('.queue__movies');
+function displayWatched() {
+  const watchedMovies = localStorage.getItem('watchedList');
+  const watchedMoviesContainer = document.querySelector('.watched__movies');
 
-  if (queuedMovies) {
-    const movieList = JSON.parse(queuedMovies);
+  if (watchedMovies) {
+    const movieList = JSON.parse(watchedMovies);
     movieList.forEach(movie => {
       const movieCard = document.createElement('div');
       movieCard.classList.add('movie__card');
@@ -96,7 +96,7 @@ function displayQueue() {
       movieDescr.appendChild(movieGenre);
       movieCard.appendChild(movieDescr);
 
-      queueMoviesContainer.appendChild(movieCard);
+      watchedMoviesContainer.appendChild(movieCard);
 
       movieCard.addEventListener('click', () => {
         createModal(movie);
@@ -107,4 +107,4 @@ function displayQueue() {
   }
 }
 
-displayQueue();
+displayWatched();

@@ -27,12 +27,25 @@
   <div class="header-library__buttons">
     <ul class="header-library__buttons-list">
       <li>
-        <button class="header-library__buttons-item" type="button">WATCHED</button>
+        <button class="header-library__buttons-item" type="button" onclick="displayQueue()">QUEUE</button>
       </li>
       <li>
-        <button class="header-library__buttons-item" type="button">QUEUE</button>
+        <button class="header-library__buttons-item" type="button" onclick="displayWatched()">WATCHED</button>
       </li>
     </ul>
   </div>
   <div class="super"></div>
 </header>
+
+<div class="container">
+  <div class="backdrop is-hidden">
+    <div class="modal-movie"></div>
+  </div>
+</div>
+
+<div class="watched__container">
+  <div class="watched__movies">
+    <div class="queue__container">
+      <div class="queue__movies">
+  </div>
+</div>
