@@ -4,7 +4,7 @@ import './js/trailer';
 import './js/movies';
 import './js/search-film';
 import './js/pagination';
-import './js/queue';
+import './js/local-storage';
 import './js/dark-mode';
 import './js/cookies';
 import './js/scroll';
