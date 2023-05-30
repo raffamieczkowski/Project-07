@@ -27,7 +27,7 @@
 }
 
 #pre-load {
-  background-color: #000000b4;
+  background-color: $preLoadBg;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -43,7 +43,7 @@
     transform: translate(-50%, -50%);
     width: 150px;
     height: 150px;
-    border: 5px solid #ebebec;
+    border: 5px solid $loaderBorder;
     border-radius: 50%;
   }
   &__container:before {

@@ -22,11 +22,11 @@
     color: $fontColorPrimary;
   }
   &--next {
-    background-color: #f7f7f7;
+    background-color: $paginationArrowBg;
     flex: 0 0 40px;
   }
   &--previous {
-    background-color: #f7f7f7;
+    background-color: $paginationArrowBg;
     flex: 0 0 40px;
   }
   &--current {

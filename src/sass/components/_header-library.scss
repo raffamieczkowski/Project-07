@@ -85,7 +85,7 @@
 }
 
 .header-library__buttons-item::after {
-  background-color: #ff001b;
+  background-color: $libraryHeaderBtnAfterBg;
 }
 
 @media screen and (min-device-pixel-ratio: 2),

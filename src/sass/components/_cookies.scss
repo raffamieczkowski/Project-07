@@ -21,13 +21,12 @@
 
 .cookies {
   position: fixed;
-  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
   height: 220px;
-  background-color: #eeeeee;
+  background-color: $cookiesBg;
   border-radius: 5px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -65,8 +64,8 @@
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #4caf50;
-    color: white;
+    background-color: $cookiesBtnBg;
+    color: $fontColorSecondary;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
