@@ -1,4 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
+import Notiflix from 'notiflix';
 import { API_KEY } from './api-key';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
@@ -21,14 +22,19 @@ const openTrailer = async movieId => {
     `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&append_to_response=videos`,
   );
   const data = await response.json();
-  const youtubeKey = data.videos.results[0].key;
-  const youtubeUrl = `https://www.youtube.com/watch?v=${youtubeKey}`;
 
-  const trailerLightbox = basicLightbox.create(`
-    <iframe width="750" height="475" src="https://www.youtube.com/embed/${youtubeKey}" frameborder="0" allowfullscreen></iframe>
-  `);
+  if (data.videos && data.videos.results.length > 0) {
+    const youtubeKey = data.videos.results[0].key;
+    const youtubeUrl = `https://www.youtube.com/watch?v=${youtubeKey}`;
 
-  trailerLightbox.show();
+    const trailerLightbox = basicLightbox.create(`
+      <iframe width="750" height="475" src="https://www.youtube.com/embed/${youtubeKey}" frameborder="0" allowfullscreen></iframe>
+    `);
 
-  window.addEventListener('keydown', closeModalHandler);
+    trailerLightbox.show();
+
+    window.addEventListener('keydown', closeModalHandler);
+  } else {
+    Notiflix.Notify.failure('Sorry, there is no trailer available for this movie...');
+  }
 };

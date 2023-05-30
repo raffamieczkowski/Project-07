@@ -23,7 +23,6 @@
     "posthtml-include": "^1.7.4"
   },
   "dependencies": {
-    "@vimeo/player": "^2.20.1",
     "basiclightbox": "^5.0.4",
     "notiflix": "^3.2.6"
   }
