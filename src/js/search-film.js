@@ -1,9 +1,9 @@
 import { API_KEY } from './api-key';
 import { createPagination, setCurrentPage } from './pagination';
 import { getPosterLink } from './poster';
-
 import { openModal } from './modal-movie';
 import Notiflix from 'notiflix';
+import { showLoader, hideLoader } from './loader';
 
 const resultContainer = document.querySelector('.result__container');
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
     const searchTerm = input.value.trim();
     if (searchTerm !== '') {
+      showLoader();
       searchMovies(searchTerm);
     } else {
       resultContainer.innerHTML = '';
@@ -34,7 +35,12 @@ async function searchMovies(searchTerm) {
     searchTerm,
   )}`;
   setCurrentPage(1);
+
+  //LINIJKA DO PREZENTACJI! sztuczne wymuszenie oczekiwania na wczytanie filmów, aby pokazać loader- zakomentuj, jeśli chcesz, aby kod działał normalnie
+  await new Promise(resolve => setTimeout(resolve, 500));
+
   createPagination(url);
+  hideLoader();
 }
 
 function displayMovies(results) {
@@ -91,7 +97,9 @@ function createMovieCard(movie) {
 }
 
 function showErrorMessage() {
-  Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and try again');
+  Notiflix.Notify.failure(
+    'Search result not successful. Enter the correct movie name and try again',
+  );
 }
 
 async function trendingMovies() {

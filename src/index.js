@@ -1,3 +1,4 @@
+import './js/loader';
 import './js/modal-movie';
 import './js/trailer';
 import './js/movies';
