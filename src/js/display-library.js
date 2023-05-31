@@ -1,5 +1,5 @@
 import { getPosterLink } from './poster';
-import { openModal } from './modal-movie';
+import { openModal } from './modal-library';
 
 const buttons = document.querySelector('.header-library__buttons-list');
 const resultContainer = document.querySelector('.result__container');
@@ -39,7 +39,7 @@ function displayQueue() {
     const movieList = JSON.parse(queuedMovies);
     movieList.forEach(movie => {
       const movieCard = createMovieCard(movie);
-      resultContainer.insertAdjacentHTML('beforeend', movieCard);
+      resultContainer.appendChild(movieCard);
     });
   } else {
     console.log('Brak filmów w kolejce.');
@@ -53,7 +53,7 @@ function displayWatched() {
     const movieList = JSON.parse(watchedMovies);
     movieList.forEach(movie => {
       const movieCard = createMovieCard(movie);
-      resultContainerWatched.insertAdjacentHTML('beforeend', movieCard);
+      resultContainerWatched.appendChild(movieCard);
     });
   } else {
     console.log('Brak obejrzanych filmów.');
@@ -61,18 +61,39 @@ function displayWatched() {
 }
 
 function createMovieCard(movie) {
-  const movieCard = `
-    <div class="movie__card">
-      <a href="#"><img class="movie__poster" src="${getPosterLink(movie)}"></a>
-      <ul class="movie__short-descr">
-        <li class="movie__title">${movie.title}</li>
-        <li class="movie__genre movie__genre--list">${movie.genres} | ${movie.release_date.slice(
-    0,
-    4,
-  )} <span class="movie__vote">${movie.vote_average.toFixed(1)}</span></li>
-      </ul>
-    </div>
-  `;
+  const movieCard = document.createElement('div');
+  movieCard.classList.add('movie__card');
+
+  const movieLink = document.createElement('a');
+  movieLink.href = '#';
+
+  const moviePoster = document.createElement('img');
+  moviePoster.classList.add('movie__poster');
+  moviePoster.src = `${getPosterLink(movie)}`;
+  movieLink.appendChild(moviePoster);
+
+  const movieShortDescr = document.createElement('ul');
+  movieShortDescr.classList.add('movie__short-descr');
+
+  const movieTitle = document.createElement('li');
+  movieTitle.classList.add('movie__title');
+  movieTitle.textContent = movie.original_title;
+  movieShortDescr.appendChild(movieTitle);
+
+  const movieGenre = document.createElement('li');
+  movieGenre.classList.add('movie__genre');
+  movieGenre.textContent = `${movie.genres} | ${movie.release_date.slice(0, 4)}`;
+  movieShortDescr.appendChild(movieGenre);
+
+  movieCard.appendChild(movieLink);
+  movieCard.appendChild(movieShortDescr);
+
+  moviePoster.addEventListener('click', e => {
+    e.preventDefault();
+    const backdrop = document.querySelector('.backdrop');
+    backdrop.classList.remove('is-hidden');
+    openModal(movie);
+  });
 
   return movieCard;
 }
