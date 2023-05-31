@@ -6,13 +6,13 @@ modalContainer.addEventListener('click', ev => {
   const clickedElement = ev.target;
 
   if (clickedElement.classList.contains('modal-movie__btn-queue')) {
-    const movie = JSON.parse(clickedElement.dataset.movie);
+    const movie = JSON.parse(decodeURIComponent(clickedElement.dataset.movie));
     console.log(movie);
     handleSaveButtonClick(movie, 'queueList', 'watchedList');
     displayMovieListFromLocalStorage('queueList');
     Notiflix.Notify.success('Success! Added to queue.');
   } else if (clickedElement.classList.contains('modal-movie__btn-watched')) {
-    const movie = JSON.parse(clickedElement.dataset.movie);
+    const movie = JSON.parse(decodeURIComponent(clickedElement.dataset.movie));
     console.log(movie);
     handleSaveButtonClick(movie, 'watchedList', 'queueList');
     displayMovieListFromLocalStorage('watchedList');

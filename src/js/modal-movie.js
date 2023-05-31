@@ -40,14 +40,11 @@ function createModal(movie) {
       </div>
       
       <div class="modal-movie__btns">
-       <div class="modal-movie__box"> 
-       <button class="modal-movie__btn-watched" data-movie='${JSON.stringify(
-        movie,
-      )}'>add to watched</button>
-        <button class="modal-movie__btn-queue" data-movie='${JSON.stringify(
-          movie,
-        )}'>add to queue</button>
-      </div>
+      <div class="modal-movie__box"> 
+      <button class="modal-movie__btn-watched" data-movie="${encodeURIComponent(JSON.stringify(movie))}">add to watched</button>
+      <button class="modal-movie__btn-queue" data-movie="${encodeURIComponent(JSON.stringify(movie))}">add to queue</button>
+    </div>
+  </div>
   
   <div class="modal-movie__trailer-box"> 
   <button class="modal-movie__btn-trailer" data-id=${
