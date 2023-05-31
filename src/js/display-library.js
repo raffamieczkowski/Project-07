@@ -68,7 +68,7 @@ function createMovieCard(movie) {
         <li class="movie__title">${movie.title}</li>
         <li class="movie__genre movie__genre--list">${movie.genres} | ${movie.release_date.slice(
     0,
-    4,
+    4
   )} <span class="movie__vote">${movie.vote_average.toFixed(1)}</span></li>
       </ul>
     </div>

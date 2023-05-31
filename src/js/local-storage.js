@@ -1,25 +1,5 @@
 import Notiflix from 'notiflix';
 
-// localStorage.clear()
-const modalContainer = document.querySelector('.modal-movie');
-modalContainer.addEventListener('click', ev => {
-  const clickedElement = ev.target;
-
-  if (clickedElement.classList.contains('modal-movie__btn-queue')) {
-    const movie = JSON.parse(clickedElement.dataset.movie);
-    console.log(movie);
-    handleSaveButtonClick(movie, 'queueList', 'watchedList');
-    displayMovieListFromLocalStorage('queueList');
-    Notiflix.Notify.success('Success! Added to queue.');
-  } else if (clickedElement.classList.contains('modal-movie__btn-watched')) {
-    const movie = JSON.parse(clickedElement.dataset.movie);
-    console.log(movie);
-    handleSaveButtonClick(movie, 'watchedList', 'queueList');
-    displayMovieListFromLocalStorage('watchedList');
-    Notiflix.Notify.success('Success! Added to watched.');
-  }
-});
-
 function getMovieListFromLocalStorage(key) {
   const movieListString = localStorage.getItem(key);
   const movieList = JSON.parse(movieListString);
@@ -65,3 +45,22 @@ function displayMovieListFromLocalStorage(key) {
     console.log('Brak filmów na liście.');
   }
 }
+
+const modalContainer = document.querySelector('.modal-movie');
+modalContainer.addEventListener('click', ev => {
+  const clickedElement = ev.target;
+  console.log(clickedElement);
+  const movie = JSON.parse(localStorage.getItem('temporaryData'));
+  
+  if (clickedElement.classList.contains('modal-movie__btn-queue')) {
+    console.log('queue');
+    handleSaveButtonClick(movie, 'queueList', 'watchedList');
+    displayMovieListFromLocalStorage('queueList');
+    Notiflix.Notify.success('Success! Added to queue.');
+  } else if (clickedElement.classList.contains('modal-movie__btn-watched')) {
+    console.log('watched');
+    handleSaveButtonClick(movie, 'watchedList', 'queueList');
+    displayMovieListFromLocalStorage('watchedList');
+    Notiflix.Notify.success('Success! Added to watched.');
+  }
+});
