@@ -53,7 +53,7 @@ function displayWatched() {
     const movieList = JSON.parse(watchedMovies);
     movieList.forEach(movie => {
       const movieCard = createMovieCard(movie);
-      resultContainer.appendChild(movieCard);
+      resultContainerWatched.appendChild(movieCard);
     });
   } else {
     console.log('Brak obejrzanych filmów.');
