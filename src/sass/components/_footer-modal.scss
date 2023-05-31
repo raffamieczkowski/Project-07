@@ -4,16 +4,24 @@
   justify-content: center;
   align-items: center;
   cursor: not-allowed;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
   background-color: $backdropBg;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  padding: 20px 0;
   z-index: 1;
   visibility: visible;
   opacity: 1;
   transition: visibility $transitionDuration $transitionTimingFunction,
     opacity $transitionDuration $transitionTimingFunction;
+
+  @media screen and (max-width: 1043px) {
+    align-items: stretch;
+  }
 }
 
 .is-hidden-students {
@@ -24,9 +32,10 @@
 
 .modal-students {
   position: relative;
-  max-width: 550px;
+  max-width: 1050px;
   width: 100%;
   margin: 0 20px;
+  text-align: left;
   background-color: $fontColorSecondary;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -36,7 +45,8 @@
   transition-property: transform, border-radius;
   transition-duration: 0.4s;
   transition-timing-function: $transitionTimingFunction;
-  padding: 20px 40px;
+  padding: 40px 20px;
+  overflow-x: hidden;
 
   &__btn {
     position: absolute;
@@ -51,5 +61,31 @@
   .is-hidden-students & {
     transform: scale(0.1);
     border-radius: 50%;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  &__item {
+    padding: 10px;
+    border-style: dashed;
+    border-width: 1px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__item-text {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__item-left-side {
+    color: $fontColorTertiary;
   }
 }
