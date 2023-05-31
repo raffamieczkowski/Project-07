@@ -1,5 +1,5 @@
 import { getPosterLink } from './poster';
-import { openModal } from './modal-movie';
+import { openModal } from './modal-library';
 
 const buttons = document.querySelector('.header-library__buttons-list');
 const resultContainer = document.querySelector('.result__container');
