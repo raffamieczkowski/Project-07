@@ -22,6 +22,7 @@
 .movie {
   &__card {
     width: 280px;
+    margin-bottom: 20px;
 
     @include tablet {
       width: 336px;
